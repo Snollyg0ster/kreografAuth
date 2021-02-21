@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "646948033618",
+    "project_id": "kreograf-autorithation",
+    "storage_bucket": "kreograf-autorithation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646948033618:android:28ee65cdea094654c57b8b",
+        "android_client_info": {
+          "package_name": "com.kreografauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646948033618-jcnbnvl46l1cqnd86v0jllooivuqt1ks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA72u5HtFRrsoXxZVCWyxgZtp9AF6KhY-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646948033618-jcnbnvl46l1cqnd86v0jllooivuqt1ks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
