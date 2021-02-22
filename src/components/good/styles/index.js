@@ -4,13 +4,13 @@ const styles = StyleSheet.create({
   good: {
     display: 'flex',
     width: '100%',
-    height: 390,
+    height: 380,
     alignItems: 'center',
     justifyContent: 'center',
   },
   image: {
-    width: 390,
-    height: 390,
+    width: 380,
+    height: 380,
   },
 });
 

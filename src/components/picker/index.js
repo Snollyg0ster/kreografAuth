@@ -3,7 +3,7 @@ import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import styles from './styles/index';
 import Icon from 'react-native-vector-icons/Fontisto';
 
-const DATA = [
+export const DATA = [
   {
     id: '1',
     title: '700,00 ₽',
@@ -33,7 +33,7 @@ const Item = (props) => (
   </TouchableOpacity>
 );
 
-const Picker = () => {
+const Picker = (props) => {
   const renderItem = ({item}) => (
     <Item title={item.title} number={item.number} />
   );
@@ -50,7 +50,7 @@ const Picker = () => {
       <FlatList
         horizontal={true}
         showsHorizontalScrollIndicator={false}
-        data={DATA}
+        data={props.items}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />

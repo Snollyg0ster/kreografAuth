@@ -15,10 +15,13 @@ const styles = StyleSheet.create({
   titleStyle: {
     color: 'gray',
   },
+<<<<<<< 90c90ae0554f775aa71d76bbb8b04912789a1cc7
   image: {
     width: 34,
     height: 32,
   },
+=======
+>>>>>>> navTab
 });
 
 export default styles;
