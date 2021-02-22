@@ -13,12 +13,20 @@ const MyStack = () => {
         <Stack.Screen
           name="Authorization"
           component={Authorization}
-          options={{title: 'Authorization', headerShown: false}}
+          options={{
+            title: 'Authorization',
+            headerShown: false,
+            animationEnabled: false,
+          }}
         />
         <Stack.Screen
           name="Goods"
           component={Goods}
-          options={{title: 'Goods', headerShown: false}}
+          options={{
+            title: 'Goods',
+            headerShown: false,
+            animationEnabled: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

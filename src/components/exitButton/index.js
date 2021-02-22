@@ -17,7 +17,7 @@ const ExitButton = (props) => {
       <Button
         buttonStyle={styles.buttonStyle}
         containerStyle={styles.containerStyle}
-        icon={<IconAntDesign name="leftcircleo" size={25} color="white" />}
+        icon={<IconAntDesign name="leftcircleo" size={18} color="white" />}
         onPress={() => exit()}
       />
     </>

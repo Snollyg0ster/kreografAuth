@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import ExitButton from './../../exitButton/index';
 
 const styles = StyleSheet.create({
   text: {
@@ -10,11 +9,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    height: 46,
-    backgroundColor: '#ff3200',
-    padding: 17,
+    height: 59,
+    backgroundColor: '#ff6600',
+    padding: 20.5,
+    paddingLeft: 19,
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 

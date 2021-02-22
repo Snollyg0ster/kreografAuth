@@ -4,6 +4,7 @@ import AuthenticationState from '../../components/authorization';
 import TopPanel from '../../components/topPanel';
 import styles from './styles';
 import ExitButton from './../../components/exitButton/index';
+import Timer from '../../components/timer';
 
 const Goods = ({navigation}) => {
   return (
@@ -13,7 +14,7 @@ const Goods = ({navigation}) => {
         elements={<ExitButton navigation={navigation} />}
       />
       <View style={styles.inputContainer}>
-        <AuthenticationState />
+        <Timer />
       </View>
     </View>
   );
