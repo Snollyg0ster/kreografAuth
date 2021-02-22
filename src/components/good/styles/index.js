@@ -1,16 +1,16 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  signInScreen: {
-    flex: 1,
+  good: {
     display: 'flex',
-    backgroundColor: 'white',
-  },
-  inputContainer: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'center',
+    width: '100%',
+    height: 390,
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    width: 390,
+    height: 390,
   },
 });
 

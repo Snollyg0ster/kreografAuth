@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 13,
     color: 'gray',
-    backgroundColor: 'transparent',
   },
 });
 

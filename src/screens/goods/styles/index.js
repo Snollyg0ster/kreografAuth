@@ -2,10 +2,12 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   signInScreen: {
+    flex: 1,
     display: 'flex',
+    backgroundColor: 'white',
   },
   inputContainer: {
-    height: '85%',
+    flex: 1,
     display: 'flex',
     alignItems: 'center',
   },
