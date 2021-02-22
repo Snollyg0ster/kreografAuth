@@ -1,16 +1,19 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  good: {
+  navigationBar: {
+    flex: 1,
     display: 'flex',
+    flexDirection: 'row',
     width: '100%',
-    height: 380,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
   },
-  image: {
-    width: 380,
-    height: 380,
+  containerStyle: {
+    borderRadius: 20,
+  },
+  titleStyle: {
+    color: 'gray',
   },
 });
 

@@ -5,17 +5,17 @@ import Picker from './../picker/index';
 import Icon from 'react-native-vector-icons/Fontisto';
 import {Button} from 'react-native-elements';
 
-const Info = () => {
+const Info = (props) => {
   return (
     <View style={styles.borders}>
       <View style={styles.cont}>
         <View style={styles.titleCont}>
-          <Text style={styles.title}>Подсвечник на 3 свечи бронза 25 см</Text>
+          <Text style={styles.title}>{props.title}</Text>
         </View>
         <View style={styles.buyOptions}>
           <View>
-            <Text style={styles.price}>724,50 ₽</Text>
-            <Picker />
+            <Text style={styles.price}>{props.cost}</Text>
+            <Picker items={props.discounts} />
           </View>
           <Button
             buttonStyle={styles.buttonStyle}
@@ -27,14 +27,14 @@ const Info = () => {
         <View style={styles.buyOptions2}>
           <View style={styles.buyOptions}>
             <Text style={styles.grayText}>Надо выкупить: </Text>
-            <Text style={styles.blackText}>{100}</Text>
+            <Text style={styles.blackText}>{props.needToBuy}</Text>
           </View>
           <View style={styles.buyOptions}>
             <Text style={styles.grayText}>Выкуплено: </Text>
-            <Text style={styles.blackText}>{300}</Text>
+            <Text style={styles.blackText}>{props.bought}</Text>
           </View>
         </View>
-        <Text style={styles.grayText}>Арт./код: {668093}</Text>
+        <Text style={styles.grayText}>Арт./код: {props.artCode}</Text>
       </View>
     </View>
   );

@@ -15,7 +15,6 @@ const Anon = (props) => {
   return (
     <>
       <Button
-        buttonStyle={styles.buttonStyle}
         containerStyle={styles.containerStyle}
         titleStyle={styles.titleStyle}
         onPress={() => {
