@@ -4,7 +4,6 @@ import SignInInput from './../signIn/index';
 import styles from './styles';
 import LogInInput from './../logIn/index';
 import Anon from '../anonymous';
-import AuthenticationState from './../authorization/index';
 
 const InputType = (props) => {
   const [type, setType] = useState(0);
@@ -12,18 +11,19 @@ const InputType = (props) => {
   const buttons = ['Войти', 'Зарегистрироваться'];
 
   const input = () => {
-    if (type == 0)
+    if (type === 0) {
       return (
         <>
           <LogInInput navigation={props.navigation} />
         </>
       );
-    else
+    } else {
       return (
         <>
           <SignInInput navigation={props.navigation} />
         </>
       );
+    }
   };
 
   return (

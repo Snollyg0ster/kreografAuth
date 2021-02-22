@@ -7,3 +7,5 @@ const styles = StyleSheet.create({
     color: 'black',
   },
 });
+
+export default styles;

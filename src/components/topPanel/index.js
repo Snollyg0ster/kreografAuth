@@ -5,10 +5,11 @@ import styles from './styles/index';
 const TopPanel = (props) => {
   return (
     <>
-      <StatusBar backgroundColor="orange" />
+      <StatusBar backgroundColor="#ff3200" />
       <View style={styles.navigationBar}>
         <Text style={styles.text}>{props.name}</Text>
       </View>
+      {props.elements}
     </>
   );
 };

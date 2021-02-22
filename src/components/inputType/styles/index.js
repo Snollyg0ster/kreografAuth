@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   selectedButtonStyle: {
-    backgroundColor: 'orange',
+    backgroundColor: '#ff3200',
     borderColor: 'transparent',
     borderWidth: 0,
   },

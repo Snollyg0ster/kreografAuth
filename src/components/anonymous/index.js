@@ -1,7 +1,7 @@
 import React from 'react';
 import auth from '@react-native-firebase/auth';
 import {Button} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import styles from './styles';
 
 const signInAnon = () => {
   auth()
@@ -15,6 +15,9 @@ const Anon = (props) => {
   return (
     <>
       <Button
+        buttonStyle={styles.buttonStyle}
+        containerStyle={styles.containerStyle}
+        titleStyle={styles.titleStyle}
         onPress={() => {
           signInAnon();
           props.navigation.navigate('Goods', {name: 'Jane'});

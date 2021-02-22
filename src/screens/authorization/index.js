@@ -7,7 +7,7 @@ import styles from './styles';
 const Authorization = ({navigation}) => {
   return (
     <View style={styles.signInScreen}>
-      <TopPanel />
+      <TopPanel name="Авторизация" />
       <View style={styles.inputContainer}>
         <InputType navigation={navigation} />
       </View>
