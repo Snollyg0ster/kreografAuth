@@ -26,7 +26,7 @@ const Goods = ({navigation}) => {
         elements={<ExitButton navigation={navigation} />}
       />
       <View style={styles.inputContainer}>
-        <Timer />
+        <Timer navigation={navigation} />
         <Good />
         <Info {...info} />
         <NavTab />

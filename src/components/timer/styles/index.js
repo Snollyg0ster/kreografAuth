@@ -15,6 +15,14 @@ const styles = StyleSheet.create({
     paddingLeft: 19,
     alignItems: 'center',
   },
+  time: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginLeft: 18,
+  },
+  text: {
+    color: 'white',
+  },
 });
 
 export default styles;
