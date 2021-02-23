@@ -20,7 +20,7 @@ const Timer = (props) => {
       }
       setTime(serverTime - Date.now());
     }
-    setInterval(getTimeDifference, 10000);
+    setInterval(getTimeDifference, 5000);
   }
 
   timer();
