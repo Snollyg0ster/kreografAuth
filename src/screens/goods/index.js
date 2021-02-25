@@ -27,7 +27,7 @@ const Goods = ({navigation}) => {
       />
       <View style={styles.inputContainer}>
         <Timer navigation={navigation} />
-        <ScrollView>
+        <ScrollView style={styles.scrollview}>
           <Good />
           <Info {...info} />
         </ScrollView>

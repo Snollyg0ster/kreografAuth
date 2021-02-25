@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
   },
+  scrollview: {
+    flex: 1,
+  },
 });
 
 export default styles;
