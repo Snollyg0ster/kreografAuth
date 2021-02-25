@@ -12,19 +12,14 @@ export const authCall = async ({mail, pass}) => {
   }
 };
 
-// return
-// .then((data) => {
+export const signupCall = async ({mail, pass}) => {
+  try {
+    const data = await auth().createUserWithEmailAndPassword(mail, pass);
 
-//   //setError('');
-//   //props.navigation.navigate('Goods', {name: 'Jane'});
-// })
-// .catch((error) => {
-//   if (error.code === 'auth/user-not-found') {
-//     //setError('Такого пользователя не существует');
-//   }
-
-//   if (error.code === 'auth/wrong-password') {
-//     //setError('Неправильный пароль!');
-//   }
-//   //console.error(error);
-// });
+    console.log('Вы успешно зарегистрировались и вошли в аккаунт!');
+    return data;
+  } catch (e) {
+    console.warn('>>e', e.code);
+    return e.code;
+  }
+};
