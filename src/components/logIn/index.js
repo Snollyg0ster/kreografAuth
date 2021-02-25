@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react';
 import {Text, TextInput} from 'react-native';
-import auth from '@react-native-firebase/auth';
+import {useDispatch, useSelector} from 'react-redux';
 import styles from './styles';
+import {loginRequest} from '../../redux/auth/actions';
 
 const LogInInput = (props) => {
   const [email, setEmail] = useState('');
@@ -9,27 +10,44 @@ const LogInInput = (props) => {
   const [err, setError] = useState();
   const textInput = useRef(null);
 
+  const {user} = useSelector((state) => state.authReducer);
+
+  console.log('>>user', user);
+
+  const dispatch = useDispatch();
+
   const logIn = (mail, pass) => {
     if (email === '' || password === '') {
       setError('Пожалуйста, заполните обе формы!');
-    } else
-      auth()
-        .signInWithEmailAndPassword(mail, pass)
-        .then(() => {
-          console.log('Вы успешно залогинились!');
-          setError('');
-          props.navigation.navigate('Goods', {name: 'Jane'});
-        })
-        .catch((error) => {
-          if (error.code === 'auth/user-not-found') {
-            setError('Такого пользователя не существует');
-          }
+    } else {
+      dispatch(
+        loginRequest({
+          mail,
+          pass,
+          callback: () => {
+            setError('');
+            props.navigation.navigate('Goods', {name: 'Jane'});
+          },
+        }),
+      );
+    }
+    // auth()
+    //   .signInWithEmailAndPassword(mail, pass)
+    //   .then(() => {
+    //     console.log('Вы успешно залогинились!');
+    //     setError('');
+    //     props.navigation.navigate('Goods', {name: 'Jane'});
+    //   })
+    //   .catch((error) => {
+    //     if (error.code === 'auth/user-not-found') {
+    //       setError('Такого пользователя не существует');
+    //     }
 
-          if (error.code === 'auth/wrong-password') {
-            setError('Неправильный пароль!');
-          }
-          //console.error(error);
-        });
+    //     if (error.code === 'auth/wrong-password') {
+    //       setError('Неправильный пароль!');
+    //     }
+    //     //console.error(error);
+    //   });
   };
 
   return (
