@@ -7,7 +7,8 @@ export const authCall = async ({mail, pass}) => {
     console.log('Вы успешно залогинились!');
     return data;
   } catch (e) {
-    console.warn('>>e', e);
+    console.warn('>>e', e.code);
+    return e.code;
   }
 };
 

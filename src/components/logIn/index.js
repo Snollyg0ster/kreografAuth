@@ -16,7 +16,7 @@ const LogInInput = (props) => {
 
   const dispatch = useDispatch();
 
-  const logIn = (mail, pass) => {
+  const login = (mail, pass) => {
     if (email === '' || password === '') {
       setError('Пожалуйста, заполните обе формы!');
     } else {
@@ -28,26 +28,12 @@ const LogInInput = (props) => {
             setError('');
             props.navigation.navigate('Goods', {name: 'Jane'});
           },
+          errorCallback: (e) => {
+            setError(e);
+          },
         }),
       );
     }
-    // auth()
-    //   .signInWithEmailAndPassword(mail, pass)
-    //   .then(() => {
-    //     console.log('Вы успешно залогинились!');
-    //     setError('');
-    //     props.navigation.navigate('Goods', {name: 'Jane'});
-    //   })
-    //   .catch((error) => {
-    //     if (error.code === 'auth/user-not-found') {
-    //       setError('Такого пользователя не существует');
-    //     }
-
-    //     if (error.code === 'auth/wrong-password') {
-    //       setError('Неправильный пароль!');
-    //     }
-    //     //console.error(error);
-    //   });
   };
 
   return (
@@ -63,7 +49,7 @@ const LogInInput = (props) => {
         style={styles.loginOrPassword}
         placeholder="пароль"
         onChangeText={(pass) => setPassword(pass)}
-        onSubmitEditing={() => logIn(email, password)}
+        onSubmitEditing={() => login(email, password)}
         ref={textInput}
       />
       <Text style={styles.error}>{err}</Text>

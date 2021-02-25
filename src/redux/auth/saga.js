@@ -2,11 +2,17 @@ import {call, takeEvery, put} from 'redux-saga/effects';
 import {actions as authActions, loginSuccess} from './actions';
 import Auth from './../../api/auth';
 
-function* login({mail, pass, callback}) {
+function* login({mail, pass, callback, errorCallback}) {
   try {
     const data = yield call(Auth.login, mail, pass);
 
-    //const data = null;
+    if (data === 'auth/user-not-found') {
+      throw 'Такого пользователя не существует';
+    }
+
+    if (data === 'auth/wrong-password') {
+      throw 'Неправильный пароль!';
+    }
 
     console.log('>Success login');
 
@@ -14,6 +20,7 @@ function* login({mail, pass, callback}) {
 
     callback();
   } catch (err) {
+    errorCallback(err);
     console.log('err', err);
   }
 }
