@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   navigationBar: {
-    flex: 1,
+    height: 55,
     display: 'flex',
     flexDirection: 'row',
     width: '100%',

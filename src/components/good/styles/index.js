@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   good: {
     display: 'flex',
     width: '100%',
-    height: 380,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },

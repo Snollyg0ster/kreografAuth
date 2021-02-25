@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   loginOrPassword: {
-    width: 300,
+    width: '75%',
     height: 35,
     borderBottomWidth: 2,
     borderBottomColor: 555,

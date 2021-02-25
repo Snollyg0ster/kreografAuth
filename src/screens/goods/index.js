@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import TopPanel from '../../components/topPanel';
 import styles from './styles';
 import ExitButton from './../../components/exitButton/index';
@@ -27,8 +27,10 @@ const Goods = ({navigation}) => {
       />
       <View style={styles.inputContainer}>
         <Timer navigation={navigation} />
-        <Good />
-        <Info {...info} />
+        <ScrollView>
+          <Good />
+          <Info {...info} />
+        </ScrollView>
         <NavTab />
       </View>
     </View>

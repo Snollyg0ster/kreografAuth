@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     marginBottom: 20,
     color: 'transparent',
-    width: 300,
+    width: '75%',
     borderRadius: 15,
   },
   selectedButtonStyle: {
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     borderRadius: 15,
+    paddingHorizontal: 7,
   },
   innerBorderStyle: {
     color: 'transparent',

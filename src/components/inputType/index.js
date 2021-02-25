@@ -8,7 +8,7 @@ import Anon from '../anonymous';
 const InputType = (props) => {
   const [type, setType] = useState(0);
 
-  const buttons = ['Войти', 'Зарегистрироваться'];
+  const buttons = ['Войти', 'Регистрация'];
 
   const input = () => {
     if (type === 0) {

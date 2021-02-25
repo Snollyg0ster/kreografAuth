@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
 import styles from './styles/index';
 import IconIon from 'react-native-vector-icons/Ionicons';
@@ -8,18 +8,21 @@ const Timer = (props) => {
   const [serverTime, setserverTime] = useState();
   const [time, setTime] = useState();
 
+  function getServerTime() {
+    database()
+      .ref('countDown')
+      .once('value')
+      .then((snapshot) => {
+        setserverTime(new Date(snapshot.val()));
+      })
+      .then(() => getTimeDifference());
+  }
+
+  function getTimeDifference() {
+    setTime(serverTime - Date.now());
+  }
+
   function timer() {
-    function getTimeDifference() {
-      if (!serverTime) {
-        database()
-          .ref('countDown')
-          .once('value')
-          .then((snapshot) => {
-            setserverTime(new Date(snapshot.val()));
-          });
-      }
-      setTime(serverTime - Date.now());
-    }
     setInterval(getTimeDifference, 5000);
   }
 
@@ -40,6 +43,8 @@ const Timer = (props) => {
       );
     } else return 'загрузка...';
   }
+
+  useEffect(() => getServerTime(), [serverTime]);
 
   return (
     <View style={styles.navigationBar}>
