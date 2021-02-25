@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react';
 import {Text, TextInput} from 'react-native';
-import auth from '@react-native-firebase/auth';
 import styles from './styles';
+import {signupRequest} from '../../redux/auth/actions';
+import {useDispatch} from 'react-redux';
 
 const SignInInput = (props) => {
   const [email, setEmail] = useState('');
@@ -9,27 +10,25 @@ const SignInInput = (props) => {
   const [err, setError] = useState();
   const textInput = useRef(null);
 
+  const dispatch = useDispatch();
+
   const signIn = (mail, pass) => {
     if (mail === '' || pass === '') {
       setError('Пожалуйста, заполните обе формы!');
     } else
-      auth()
-        .createUserWithEmailAndPassword(mail, pass)
-        .then(() => {
-          console.log('Вы успешно зарегистрировались и вошли в аккаунт!');
-          setError('');
-          props.navigation.navigate('Goods', {name: 'Jane'});
-        })
-        .catch((error) => {
-          if (error.code === 'auth/email-already-in-use') {
-            setError('Эта электронная почта уже используется!');
-          }
-
-          if (error.code === 'auth/invalid-email') {
-            setError('Неправильный адрес электронной почты!');
-          }
-          //console.error(error);
-        });
+      dispatch(
+        signupRequest({
+          mail,
+          pass,
+          callback: () => {
+            setError('');
+            props.navigation.navigate('Goods', {name: 'Jane'});
+          },
+          errorCallback: (e) => {
+            setError(e);
+          },
+        }),
+      );
   };
 
   return (
