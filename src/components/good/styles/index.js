@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: '80%',
-    height: 300,
+    width: 320,
+    height: 320,
   },
 });
 
