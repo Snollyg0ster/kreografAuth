@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {ScrollView, View} from 'react-native';
 import TopPanel from '../../components/topPanel';
 import styles from './styles';
@@ -8,15 +8,6 @@ import Good from './../../components/good/index';
 import Info from '../../components/shopingInformation';
 import {DATA} from './../../components/picker/index';
 import NavTab from './../../components/navTab/index';
-
-const info = {
-  title: 'Подсвечник на 3 свечи бронза 25 см',
-  cost: '724,50 ₽',
-  discounts: DATA,
-  needToBuy: 100,
-  bought: 300,
-  artCode: 668093,
-};
 
 const Goods = ({navigation}) => {
   return (
@@ -28,8 +19,7 @@ const Goods = ({navigation}) => {
       <View style={styles.inputContainer}>
         <Timer navigation={navigation} />
         <ScrollView style={styles.scrollview}>
-          <Good />
-          <Info {...info} />
+          <Info />
         </ScrollView>
         <NavTab />
       </View>

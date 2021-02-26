@@ -12,8 +12,6 @@ const LogInInput = (props) => {
 
   const {user} = useSelector((state) => state.authReducer);
 
-  console.log('>>user', user);
-
   const dispatch = useDispatch();
 
   const login = (mail, pass) => {
