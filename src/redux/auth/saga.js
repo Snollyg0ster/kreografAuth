@@ -59,8 +59,6 @@ function* signup({mail, pass, callback, errorCallback}) {
 }
 
 function* getGood() {
-  console.log('>>>>saga starts');
-
   try {
     const data = yield call(getGoods);
 

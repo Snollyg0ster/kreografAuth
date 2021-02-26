@@ -1,8 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
 
 export const getGoods = async () => {
-  console.log('>>getGoods starts');
-
   try {
     const Info = await firestore()
       .collection('goods')
