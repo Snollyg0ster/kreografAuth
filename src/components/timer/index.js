@@ -5,15 +5,19 @@ import IconIon from 'react-native-vector-icons/Ionicons';
 import database from '@react-native-firebase/database';
 
 const Timer = (props) => {
-  const [serverTime, setserverTime] = useState();
-  const [time, setTime] = useState();
+  const [serverTime, setServerTime] = useState(null);
+  const [time, setTime] = useState(null);
+  const [convertedTime, setConvertedTime] = useState(null);
+
   const timerRef = useRef(null);
 
-  function getTimeDifference(value) {
-    setTime(serverTime - Date.now());
-  }
+  const getTimeDifference = () => {
+    if (serverTime) {
+      setTime(serverTime - Date.now());
+    }
+  };
 
-  function converter() {
+  const converter = () => {
     if (time) {
       const days = time / 86400000;
       const hours = (days - Math.trunc(days)) / 0.0416666666666667;
@@ -26,37 +30,46 @@ const Timer = (props) => {
         Math.trunc(minutes) +
         ' минут'
       );
-    } else return 'загрузка...';
-  }
+    } else {
+      return null;
+    }
+  };
 
-  async function getServerTime() {
+  const getServerTime = async () => {
     await database()
       .ref('countDown')
       .once('value')
       .then((snapshot) => {
-        setserverTime(new Date(snapshot.val()));
-        getTimeDifference(snapshot.val());
-        converter(new Date(snapshot.val()) - Date.now());
+        setServerTime(new Date(snapshot.val()));
       });
-    return 0;
-  }
+  };
 
   useEffect(() => {
     getServerTime();
-
-    timerRef.current = setInterval(getTimeDifference, 5000);
-
-    return () => {
-      clearInterval(timerRef.current);
-    };
   }, []);
+
+  useEffect(() => {
+    setConvertedTime(converter());
+  }, [time]);
+
+  useEffect(() => {
+    if (serverTime) {
+      getTimeDifference();
+
+      timerRef.current = setInterval(getTimeDifference, 5000);
+
+      return () => {
+        clearInterval(timerRef.current);
+      };
+    }
+  }, [serverTime]);
 
   return (
     <View style={styles.navigationBar}>
       <IconIon name="time-outline" size={21} color="white" />
       <View style={styles.time}>
         <Text style={styles.text}>Осталось</Text>
-        <Text style={styles.text}>{converter()}</Text>
+        <Text style={styles.text}>{convertedTime || 'загрузка...'}</Text>
       </View>
     </View>
   );
