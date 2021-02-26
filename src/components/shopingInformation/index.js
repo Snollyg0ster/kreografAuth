@@ -6,36 +6,45 @@ import Icon from 'react-native-vector-icons/Fontisto';
 import {Button} from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
 import Good from '../good';
+import {useDispatch, useSelector} from 'react-redux';
+import {dataRequest} from '../../redux/auth/actions';
 
-const Default = {
-  artCode: null,
-  bought: null,
-  cost: '-',
-  discounts: [
-    {id: '1', number: '-', title: '-'},
-    {id: '2', number: '-', title: '-'},
-    {id: '3', number: '-', title: '-'},
-    {id: '4', number: '-', title: '-'},
-  ],
-  needToBuy: null,
-  title: '-',
-  img: '-',
-};
+// const Default = {
+//   artCode: null,
+//   bought: null,
+//   cost: '-',
+//   discounts: [
+//     {id: '1', number: '-', title: '-'},
+//     {id: '2', number: '-', title: '-'},
+//     {id: '3', number: '-', title: '-'},
+//     {id: '4', number: '-', title: '-'},
+//   ],
+//   needToBuy: null,
+//   title: '-',
+//   img: '-',
+// };
 
 const Info = () => {
-  const [info, setInfo] = useState(Default);
-  const goodsCall = async () => {
-    const Info = await firestore()
-      .collection('goods')
-      .doc('dCm03ZweBmb7z7VSlRrq')
-      .get();
-    console.log(Info._data);
-    setInfo(Info._data);
-  };
+  //const [info, setInfo] = useState(Default);
+
+  const info = useSelector((state) => state.goodsReducer);
+
+  const dispatch = useDispatch();
+
+  // const goodsCall = async () => {
+  //   const Info = await firestore()
+  //     .collection('goods')
+  //     .doc('dCm03ZweBmb7z7VSlRrq')
+  //     .get();
+  //   console.log(Info._data);
+  //   setInfo(Info._data);
+  // };
 
   useEffect(() => {
-    goodsCall();
-  }, [info]);
+    //goodsCall();
+    dispatch(dataRequest());
+  }, []);
+
   return (
     <>
       <Good img={info.img} />

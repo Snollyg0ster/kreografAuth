@@ -8,17 +8,19 @@ const Timer = (props) => {
   const [serverTime, setserverTime] = useState();
   const [time, setTime] = useState();
 
-  function getServerTime() {
-    database()
+  async function getServerTime() {
+    await database()
       .ref('countDown')
       .once('value')
       .then((snapshot) => {
         setserverTime(new Date(snapshot.val()));
-      })
-      .then(() => getTimeDifference());
+        getTimeDifference(snapshot.val());
+        converter(new Date(snapshot.val()) - Date.now());
+      });
+    return 0;
   }
 
-  function getTimeDifference() {
+  function getTimeDifference(value) {
     setTime(serverTime - Date.now());
   }
 
@@ -44,7 +46,9 @@ const Timer = (props) => {
     } else return 'загрузка...';
   }
 
-  useEffect(() => getServerTime(), [serverTime]);
+  useEffect(() => {
+    getServerTime();
+  }, [serverTime]);
 
   return (
     <View style={styles.navigationBar}>
