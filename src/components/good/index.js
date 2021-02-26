@@ -2,14 +2,11 @@ import React from 'react';
 import {Image, View} from 'react-native';
 import styles from './styles/index';
 
-const Good = () => {
+const Good = (props) => {
   return (
     <>
       <View style={styles.good}>
-        <Image
-          style={styles.image}
-          source={require('../../img/candlestick.png')}
-        />
+        <Image style={styles.image} source={{uri: props.img}} />
       </View>
     </>
   );

@@ -8,6 +8,8 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-around',
+    borderTopWidth: 1,
+    borderTopColor: '#e6e6e6',
   },
   containerStyle: {
     borderRadius: 20,
