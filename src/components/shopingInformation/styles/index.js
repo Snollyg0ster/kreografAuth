@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     borderColor: '#e6e6e6',
   },
   cont: {
-    marginLeft: 19,
+    marginHorizontal: 19,
   },
   titleCont: {
     width: '100%',
