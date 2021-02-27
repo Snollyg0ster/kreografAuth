@@ -20,6 +20,10 @@ function* login({mail, pass, callback, errorCallback}) {
       throw 'Неправильный пароль!';
     }
 
+    if (data === 'auth/invalid-email') {
+      throw 'Некорректный адрес эл.почты!';
+    }
+
     console.log('>Success login');
 
     yield put(loginSuccess({user: data}));
