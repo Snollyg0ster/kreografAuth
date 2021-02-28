@@ -12,3 +12,4 @@
 
 Redux-saga<br />
 База данных в firebase<br />
+React Native Elements<br />
