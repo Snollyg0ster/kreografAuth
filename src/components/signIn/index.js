@@ -34,6 +34,8 @@ const SignInInput = (props) => {
   return (
     <>
       <TextInput
+        keyboardType="email-address"
+        textContentType="emailAdress"
         style={styles.loginOrPassword}
         placeholder="электронная почта"
         onChangeText={(mail) => setEmail(mail)}
@@ -41,6 +43,7 @@ const SignInInput = (props) => {
         blurOnSubmit={false}
       />
       <TextInput
+        secureTextEntry={true}
         style={styles.loginOrPassword}
         placeholder="пароль"
         onChangeText={(pass) => setPassword(pass)}
