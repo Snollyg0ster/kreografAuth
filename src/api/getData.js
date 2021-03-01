@@ -1,6 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
 
-export const getGoods = async () => {
+const getGoods = async () => {
   try {
     const Info = await firestore()
       .collection('goods')
@@ -13,3 +13,5 @@ export const getGoods = async () => {
     return e.code;
   }
 };
+
+export default getGoods;

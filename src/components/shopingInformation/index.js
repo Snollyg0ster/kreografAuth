@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Fontisto';
 import {Button} from 'react-native-elements';
 import Good from '../good';
 import {useDispatch, useSelector} from 'react-redux';
-import {dataRequest} from '../../redux/auth/actions';
+import {dataRequest} from '../../redux/data/actions';
 
 const Info = () => {
   const info = useSelector((state) => state.goodsReducer);
@@ -14,6 +14,7 @@ const Info = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('диспатчим получение товара');
     dispatch(dataRequest());
   }, []);
 

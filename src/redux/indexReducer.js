@@ -1,8 +1,8 @@
 import authReducer, {
   exampleInitialState as authInitialState,
-  goodsReducer,
-  goodsInitialState,
 } from './auth/reducer';
+
+import goodsReducer, {goodsInitialState} from './data/reducer';
 
 const layout = {
   authReducer,

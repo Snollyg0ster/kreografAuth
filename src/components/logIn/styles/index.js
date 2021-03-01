@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: 555,
     marginBottom: 15,
+    padding: 0,
   },
   error: {
     color: 'red',

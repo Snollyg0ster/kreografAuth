@@ -1,12 +1,6 @@
 import {call, takeEvery, put} from 'redux-saga/effects';
-import {
-  actions as authActions,
-  loginSuccess,
-  signupSuccess,
-  dataSuccess,
-} from './actions';
+import {actions as authActions, loginSuccess, signupSuccess} from './actions';
 import Auth from './../../api/auth';
-import {getGoods} from './../../api/getData';
 
 function* login({mail, pass, callback, errorCallback}) {
   try {
@@ -62,22 +56,9 @@ function* signup({mail, pass, callback, errorCallback}) {
   }
 }
 
-function* getGood() {
-  try {
-    const data = yield call(getGoods);
-
-    console.log('>Data recieve');
-
-    yield put(dataSuccess({data}));
-  } catch (err) {
-    console.log('err', err);
-  }
-}
-
 const authSagas = [
   takeEvery(authActions.LOGIN_REQUEST, login),
   takeEvery(authActions.SIGNUP_REQUEST, signup),
-  takeEvery(authActions.DATA_REQUEST, getGood),
 ];
 
 export default authSagas;
